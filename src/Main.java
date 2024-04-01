@@ -1,11 +1,10 @@
 import Command.PauseCommand;
 import Command.PlayCommand;
 import Command.Player;
-import Media.Categorie;
-import Media.Film;
-import Media.StommeOndertiteling;
-import Media.StommeOndertitelingAdapter;
+import FactoryMethod.MediaFactory;
+import Media.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main {
@@ -30,5 +29,13 @@ public class Main {
         StommeOndertitelingAdapter adapter = new StommeOndertitelingAdapter(stommeOndertiteling);
         // Werkt wel! Adapter zorgt ervoor dat stomme ondertiteling werkt met Film.
         Film film = new Film("The Shawshank Redemption", null, adapter.getOndertiteling(), 142, "Two imprisoned", Categorie.ACTIE);
+
+        // Factory method
+        // Serie object
+        Serie serieBreakingBad = MediaFactory.createSerie("Breaking Bad", new Poster("Breaking Bad poster", "breakingBad.jpg", "2011-04-01"),
+                new ArrayList<>(), "Teacher goes insane");
+        // Film object
+        Film filmTerminator = MediaFactory.createFilm("Terminator", new Poster("Terminator poster", "terminator.jpg", "1991-04-01"),
+                new Ondertiteling("Engels", "SRT", new HashMap<>()), 120, "Cyborg from the future", Categorie.SCIENCEFICTION);
     }
 }
