@@ -1,9 +1,10 @@
 package Observer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MovieDataService {
-    private ArrayList<MovieObserver> observers;
+    private List<MovieObserver> observers = new ArrayList<>();
 
     public void addObserver(MovieObserver observer) {
         observers.add(observer);
