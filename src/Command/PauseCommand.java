@@ -1,7 +1,17 @@
 package Command;
 
-public class PauseCommand implements Command {
-    public void execute() {
-        System.out.println("Media paused.");
+public class PauseCommand extends Command {
+    public PauseCommand(Player player) {
+        super(player);
+    }
+
+    @Override
+    public boolean execute() {
+        System.out.println("Pausing...");
+        if (!player.speeltAf || player.mediaBestand == null) {
+            return false;
+        }
+        player.speeltAf = false;
+        return true;
     }
 }

@@ -1,7 +1,19 @@
 package Command;
 
-public class PlayCommand implements Command{
-    public void execute() {
-        System.out.println("Media now playing");
+public class PlayCommand extends Command {
+
+    public PlayCommand(Player player) {
+        super(player);
+    }
+
+    @Override
+    public boolean execute() {
+        System.out.println("Playing...");
+        if (player.speeltAf || player.mediaBestand == null) {
+            return false;
+        }
+
+        player.speeltAf = true;
+        return true;
     }
 }
