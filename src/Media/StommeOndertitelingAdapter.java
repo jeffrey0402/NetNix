@@ -10,9 +10,13 @@ public class StommeOndertitelingAdapter {
 
     public Ondertiteling getOndertiteling() {
         HashMap<Integer, String> ondertitelRegels = new HashMap<Integer, String>();
-        for (String key : stommeOndertiteling.ondertitelRegels.keySet()) {
-            ondertitelRegels.put(Integer.parseInt(key), String.valueOf(stommeOndertiteling.ondertitelRegels.get(key)));
+
+        // Draai de waarden en sleutels om
+        for (String ondertitelRegel : stommeOndertiteling.ondertitelRegels.keySet()) {
+            ondertitelRegels.put(stommeOndertiteling.ondertitelRegels.get(ondertitelRegel), ondertitelRegel);
         }
+
+
         return new Ondertiteling(stommeOndertiteling.taal, stommeOndertiteling.bestandsType, ondertitelRegels);
     }
 }

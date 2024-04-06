@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MovieDataService {
-    private List<MovieObserver> observers = new ArrayList<>();
+    private final List<MovieObserver> observers = new ArrayList<>();
 
     public void addObserver(MovieObserver observer) {
         observers.add(observer);

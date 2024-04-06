@@ -1,6 +1,7 @@
 import Command.Player;
 import FactoryMethod.MediaFactory;
 import Media.*;
+import Observer.MovieDataService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,5 +36,10 @@ public class Main {
         // Film object
         Film filmTerminator = MediaFactory.createFilm("Terminator", new Poster("Terminator poster", "terminator.jpg", "1991-04-01"),
                 new Ondertiteling("Engels", "SRT", new HashMap<>()), 120, "Cyborg from the future", Categorie.SCIENCEFICTION);
+
+        // MovieObserver pattern demo
+        MovieDataService movieDataService = new MovieDataService();
+        movieDataService.addObserver(() -> System.out.println("Movie fetched!"));
+        movieDataService.fetchMovieData();
     }
 }
