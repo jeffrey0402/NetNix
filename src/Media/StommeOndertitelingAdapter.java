@@ -16,7 +16,6 @@ public class StommeOndertitelingAdapter {
             ondertitelRegels.put(stommeOndertiteling.ondertitelRegels.get(ondertitelRegel), ondertitelRegel);
         }
 
-
         return new Ondertiteling(stommeOndertiteling.taal, stommeOndertiteling.bestandsType, ondertitelRegels);
     }
 }

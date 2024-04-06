@@ -2,6 +2,7 @@ import Command.Player;
 import FactoryMethod.MediaFactory;
 import Media.*;
 import Observer.MovieDataService;
+import Observer.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,8 +39,9 @@ public class Main {
                 new Ondertiteling("Engels", "SRT", new HashMap<>()), 120, "Cyborg from the future", Categorie.SCIENCEFICTION);
 
         // MovieObserver pattern demo
+        User account1 = new User("John Doe");
         MovieDataService movieDataService = new MovieDataService();
-        movieDataService.addObserver(() -> System.out.println("Movie fetched!"));
-        movieDataService.fetchMovieData();
+        movieDataService.addObserver(account1);
+        movieDataService.fetchMovieData(filmTerminator);
     }
 }

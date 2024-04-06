@@ -1,5 +1,7 @@
 package Observer;
 
+import Media.AbstractMedia;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,14 +16,14 @@ public class MovieDataService {
         observers.remove(observer);
     }
 
-    public void notifyObservers() {
+    public void notifyObservers(AbstractMedia media) {
         for (MovieObserver observer : observers) {
-            observer.onMovieFetched();
+            observer.onMovieFetched(media);
         }
     }
 
-    public void fetchMovieData() {
+    public void fetchMovieData(AbstractMedia media) {
         // Fetch movie data
-        notifyObservers();
+        notifyObservers(media);
     }
 }

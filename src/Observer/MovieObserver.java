@@ -1,5 +1,7 @@
 package Observer;
 
+import Media.AbstractMedia;
+
 public interface MovieObserver {
-    void onMovieFetched();
+    void onMovieFetched(AbstractMedia media);
 }
