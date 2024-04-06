@@ -1,5 +1,3 @@
-import Command.PauseCommand;
-import Command.PlayCommand;
 import Command.Player;
 import FactoryMethod.MediaFactory;
 import Media.*;
