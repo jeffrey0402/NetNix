@@ -31,12 +31,13 @@ public class Main {
         Film film = new Film("The Shawshank Redemption", null, adapter.getOndertiteling(), 142, "Two imprisoned", Categorie.ACTIE);
 
         // Factory method
-        // Serie object
-        Serie serieBreakingBad = MediaFactory.createSerie("Breaking Bad", new Poster("Breaking Bad poster", "breakingBad.jpg", "2011-04-01"),
-                new ArrayList<>(), "Teacher goes insane");
-        // Film object
-        Film filmTerminator = MediaFactory.createFilm("Terminator", new Poster("Terminator poster", "terminator.jpg", "1991-04-01"),
-                new Ondertiteling("Engels", "SRT", new HashMap<>()), 120, "Cyborg from the future", Categorie.SCIENCEFICTION);
+        MediaFactory mediaFactory = new MediaFactory();
+        // create serie
+        AbstractMedia serieBreakingBad = mediaFactory.createMedia( "Serie", "Breaking Bad", new Poster("Breaking Bad poster", "breakingbad.jpg", "2008-01-20"),
+                new ArrayList<>(), "A high school chemistry teacher turned meth producer", null, 50, Categorie.DRAMA);
+        // create film
+        AbstractMedia filmTerminator = mediaFactory.createMedia("Film", "Terminator", new Poster("Terminator poster", "terminator.jpg", "1984-01-10"),
+                new ArrayList<>(), "A cyborg assassin sent back in time to kill Sarah Connor", adapter.getOndertiteling(), 120, Categorie.SCIENCEFICTION);
 
         // MovieObserver pattern demo
         User account1 = new User("John Doe");
